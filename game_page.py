@@ -2,7 +2,7 @@ import pygame
 import sys
 from entity import Player
 
-from utils import Utils2
+from utils.utils import Utils2
 
 pygame.init()
 

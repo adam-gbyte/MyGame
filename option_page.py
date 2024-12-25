@@ -1,8 +1,7 @@
 import pygame
 import sys
 
-# from utils.utils import
-from utils import Utils2
+from utils.utils import Utils2
 
 pygame.init()
 
