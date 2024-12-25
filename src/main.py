@@ -4,16 +4,18 @@ import menu_page
 import option_page
 import game_page
 
+from settings import WIDTH, HEIGHT, TITLE
+
 # Inisialisasi Pygame
 pygame.init()
 
 class Main(object):
     def __init__(self):
         # Set ukuran layar
-        self.screen_width = 800
-        self.screen_height = 600
+        self.screen_width = WIDTH
+        self.screen_height = HEIGHT
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        pygame.display.set_caption("Game")
+        pygame.display.set_caption(TITLE)
 
     # Main loop game
     def game_loop(self):
