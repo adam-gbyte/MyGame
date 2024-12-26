@@ -12,12 +12,18 @@ font = pygame.font.Font(None, 40)
 # Fungsi untuk halaman game
 def game_page(screen):
 
+    width = screen.get_width()
+    height = screen.get_height()
+
     # Membuat player
     player_1 = Player("Hero", 100, 100)
 
     # Membuat tombol
     button_menu = Utils2().Button("Menu", 20, 20, 100, 45, (255, 0, 255), font)
     button_option = Utils2().Button("Option", 150, 20, 100, 45, (0, 0, 255), font)
+
+    # Membuat text
+    text_gamePage = Utils2().Text(font_name=None, font_size=36, color=(255, 255, 0))
 
     clock = pygame.time.Clock()
 
@@ -26,8 +32,7 @@ def game_page(screen):
         screen.fill("white")
 
         # Menampilkan teks "Game Page"
-        label = font.render("Welcome to the Game!", True, "black")
-        screen.blit(label, (screen.get_width() // 2 - label.get_width() // 2, screen.get_height() // 2 - label.get_height() // 2))
+        text_gamePage.draw_text(screen, "Text 1.2", (width / 2, height / 2))
 
         # Menangani event
         for event in pygame.event.get():
