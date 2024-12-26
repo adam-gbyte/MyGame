@@ -1,24 +1,30 @@
 import pygame
 import sys
-
 from utils.utils import Utils2
 
+# Inisialisasi Pygame
 pygame.init()
 
+# Font default
 font = pygame.font.Font(None, 40)
 
-# Fungsi untuk halaman option
-def option_page(screen):
 
-    # Membuat tombol
-    button_menu = Utils2().Button("Menu", 20, 20, 100, 45, (255, 0, 255), font)
+def option_page(screen):
+    """
+    Fungsi untuk menampilkan halaman opsi.
+
+    :param screen: Objek layar Pygame (pygame.Surface).
+    :return: String yang menunjukkan pilihan pengguna ("menu" untuk kembali ke menu utama).
+    """
+    # Membuat tombol kembali ke menu utama
+    button_menu = Utils2.Button("Menu", 20, 20, 100, 45, (255, 0, 255), font)
 
     while True:
-        clicked = False
-        screen.fill("white")
+        clicked = False  # Status klik mouse
+        screen.fill("white")  # Mengisi layar dengan warna putih
 
-        # Menampilkan teks "Game Page"
-        Utils2.draw_text(screen, "Welcome to the Option Game", (20, 550), 45, (0, 0, 0))
+        # Menampilkan teks judul
+        Utils2.draw_text(screen, "Welcome to the Option Page", (20, 550), 45, (0, 0, 0))
 
         # Menangani event
         for event in pygame.event.get():
@@ -32,16 +38,17 @@ def option_page(screen):
 
                 # Menangani klik pada tombol
                 if button_menu.is_clicked(mx, my):
-                    print("Back button in option page, clicked!")
-                    return "menu"  # Kembali ke game
+                    print("Back button in option page clicked!")
+                    return "menu"  # Kembali ke menu utama
 
-                clicked = True  # Tombol sudah diklik, set status ke True
+                clicked = True  # Tombol sudah diklik
 
-            # Jika mouse tidak diklik lagi, reset status
+            # Reset status klik jika tombol mouse ditekan
             if event.type == pygame.MOUSEBUTTONDOWN:
                 clicked = False
 
-        # Gambar tombol menu
+        # Gambar tombol menu di layar
         button_menu.draw(screen)
 
+        # Perbarui layar
         pygame.display.update()
